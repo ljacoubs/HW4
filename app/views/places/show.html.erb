@@ -2,10 +2,23 @@
 
 <h2>My Posts</h2>
 <% for post in @posts %>
-  <h3><%= post["title"] %></h3>
-  <h4><%= post["posted_on"] %></h4>
-  <p><%= post["description"] %></p>
-<% end %>
+<div class="col-md-3 col-sm-6">
+      <h4>
+        <% user = User.find_by({ "id" => post["user_id"] }) %>
+        <% if user %>
+          <%= user["first_name"] %>
+        <% else %>
+          anonymous
+        <% end %>
+      </h4>
+      <img src="<%= post["image"] %>" class="img-fluid">
+      <p><%= post["title"] %></p>
+      <p><%= post["posted_on"] %></p>
+      <p><%= post["image"] %></p> 
+      <p><%= post["description"] %></p>
+    </div>
+  <% end %>
+</div>
 
 <p>
   <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>

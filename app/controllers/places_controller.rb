@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
-
+  before_action :current_user
+  
   def index
     @places = Place.all
     @posts = Post.all

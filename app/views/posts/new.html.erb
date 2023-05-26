@@ -3,9 +3,20 @@
 <% if @current_user %>
   <%= form_with :model => @post do |form| %>
     <%= form.hidden_field "place_id" %>
+
+  <div class="mb-3">
+      <%= form.label "title", class: "form-label" %>
+      <%= form.text_field "title", class: "form-control" %>
+    </div>
+
     <div class="mb-3">
-      <%= form.label "body", class: "form-label" %>
-      <%= form.text_field "body", class: "form-control" %>
+      <%= form.label "description", class: "form-label" %>
+      <%= form.text_field "description", class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label "posted_on", class: "form-label" %>
+      <%= form.date_field "posted_on", class: "form-control" %>
     </div>
 
     <div class="mb-3">

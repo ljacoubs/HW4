@@ -9,16 +9,7 @@
     </div>
       <% for post in @posts %>
     <div class="col-md-3 col-sm-6">
-      <h4>
-        
-        <% user = User.find_by({ "id" => post["user_id"] }) %>
-        
-        <% if user %>
-          <%= user["username"] %>
-        <% else %>
-          anonymous
-        <% end %>
-      </h4>
+
       <img src="<%= post["image"] %>" class="img-fluid">
       <p><%= post["body"] %></p>
     </div>
