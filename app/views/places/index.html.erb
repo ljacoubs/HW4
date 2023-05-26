@@ -2,7 +2,16 @@
 
 <div class="row">
   <% for place in @places %>
-    <div class="col-md-3 col-sm-6">
+    <div class="col-md-4 text-end">
+    
+   <div class="row">
+      </div>
+      <div class="col-lg-5 text-end">
+        <a href="/places/new/" class="btn btn-success">New Place</a>
+      </div>
+    </div>
+
+
       <h4>
         <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
       </h4>

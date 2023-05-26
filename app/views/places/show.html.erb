@@ -12,6 +12,12 @@
         <% end %>
       </h4>
 
+
+    <div class="col-md-5 text-end">
+        <a href="/posts/new" class="btn btn-success">New Post</a>
+      </div>
+
+
       <p><%= post["title"] %></p>
       <p><%= post["posted_on"] %></p>
       <p><%= post["image"] %></p> <img src="<%= post["image"] %>" class="img-fluid">
@@ -20,10 +26,6 @@
   <% end %>
 </div>
 
-<p>
-  <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
-</p>
-
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
+  <div class="col-sm-2 text-end">
+  <a href="/places" class= "btn btn-success">Back to All Places</a>
+  </div>
