@@ -15,7 +15,11 @@
         </h4>
         <p><%= post["title"] %></p>
         <p><%= post["posted_on"] %></p>
-        <img src="<%= post["image"] %>" class="img-fluid">
+        <% if post.uploaded_image.attached? %>
+          <img src="<%= url_for(post.uploaded_image)%>" class="img-fluid">
+        <% else %> 
+          <img src="<%= post["image"] %>" class="img-fluid">
+        <% end %>
         <p><%= post["description"] %></p>
       </div>
     
