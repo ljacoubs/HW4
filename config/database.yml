@@ -22,4 +22,7 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: TACOSTAGRAM_FINAL_production
+  username: TACOSTAGRAM_FINAL
+  password: <%= ENV["TACOSTAGRAM_FINAL_DATABASE_PASSWORD"] %>
