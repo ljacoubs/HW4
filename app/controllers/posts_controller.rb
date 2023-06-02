@@ -5,6 +5,11 @@ class PostsController < ApplicationController
     @posts = Post.all 
   end
 
+  def show
+    @place = Place.find_by({ "id" => params["id"] })
+    @posts = Post.where({ "id" => @current_user["id"], "user_id" => session["user_id"] })
+  end
+
   def new
     @post = Post.new
     @post.place_id = params["place_id"]
@@ -16,12 +21,11 @@ class PostsController < ApplicationController
       @post["title"] = params["post"]["title"]
       @post["description"] = params["post"]["description"]
       @post["posted_on"] = params["post"]["posted_on"]
-      @post["image"] = params["post"]["image"]
       @post.uploaded_image.attach(params["post"]["uploaded_image"])
       @post["place_id"] = params["post"]["place_id"]
       @post["user_id"] = @current_user["id"]
+      @post["user_id"] = session["user_id"]
       @post.save
-      
   else 
     flash["notice"] = "Login first"
   end

@@ -15,6 +15,7 @@
         </h4>
         <p><%= post["title"] %></p>
         <p><%= post["posted_on"] %></p>
+
         <% if post.uploaded_image.attached? %>
           <img src="<%= url_for(post.uploaded_image)%>" class="img-fluid">
         <% else %> 
@@ -22,7 +23,6 @@
         <% end %>
         <p><%= post["description"] %></p>
       </div>
-    
   <% end %>
 </div>
 
